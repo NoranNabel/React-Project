@@ -15,8 +15,6 @@ const AddPost = () => {
     const [errorMessage, setErrorMessage] = useState("");
     const [file, setFile] = useState(null);
 
-
-    // const [userName, setuserName] = useState("");
     // const [image, setImage] = useState("");
 
     const PostSchema = Yup.object().shape({
@@ -47,18 +45,21 @@ const AddPost = () => {
         }
     };
 
-    // const userName = localStorage.getItem("userName");
-
+       
     const handleSubmitPost = async (e) => {
         e.preventDefault();
         try {
             const result = await PostSchema.validate({ title, description, imageUrl }, { abortEarly: false });
             console.log(result);
+            let UserName = localStorage.getItem("userName")
+            console.log("the anme iss "+ UserName);
+
+            const userID=  JSON.parse(localStorage.getItem("userToken")).user.id
 
             const response = await fetch("http://localhost:3000/posts", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ title, description, imageUrl }),
+                body: JSON.stringify({ title, description, imageUrl ,UserName, userID }),
             });
             const data = await response.json();
             console.log(data);
@@ -76,13 +77,14 @@ const AddPost = () => {
     }
 
     return (
+
         <>
-            {handleSubmit ? <section className=" dark:bg-gray-900 mb-20 ">
+            {localStorage.getItem("userToken") ? <section className=" dark:bg-gray-900 mb-20 ">
                 <div className="card border bg-base-100 shadow-2xl w-2/3 mx-auto mt-10">
                     <div className="card-body">
                         <form onSubmit={handleSubmitPost}>
                             <div className="flex flex-col ">
-                                <h2 className="card-title text-3xl font-serif mx-auto"> SHARE WITH US YOUR TASTE AND INSPIRATION </h2>
+                                <h2 className="card-title text-3xl font-serif font-normal mx-auto"> Share with us your Taste and Inspiration </h2>
 
                                 <div className="w-full ">
                                     <input type="text"
@@ -106,7 +108,7 @@ const AddPost = () => {
 
                                     <div >
                                         <input
-                                            placeholder="Image:"
+                                            placeholder="ImageURL:"
                                             type="url"
                                             name="sitelink"
                                             value={imageUrl}
@@ -134,22 +136,16 @@ const AddPost = () => {
                                         className="btn btn-active btn-accent w-34 text-xl font-serif ml-96  max-w-xs "
                                     >Post</button>
 
-                                    {/* <input type="file" className="file-input file-input-bordered file-input-accent w-full max-w-xs me-20" /> */}
-                                    {/* <button type="submit"
-                                        className="btn btn-active btn-accent w-34 text-xl font-serif mx-80 max-w-xs mt-8 "
-                                    >Post</button> */}
-
-                                    {/* <img height="24" width="24" alt="" referrerpolicy="origin-when-cross-origin" src="https://static.xx.fbcdn.net/rsrc.php/v3/y7/r/Ivw7nhRtXyo.png?_nc_eui2=AeEIrGgOID88Fs5yy4wxoWzzPL4YoeGsw5I8vhih4azDkvspJHoP4h_XdcGNYqr74FNY2c2PrNiKXSghufFagykh"/> */}
-
-
+                                    
                                 </div>
 
                             </div>
                         </form>
                     </div>
                 </div>
-            </section> : <div className="navbar-end">
-                <button   onClick={() => navigate('/login')} className="btn btn-ghost btn-active hover:btn-accent "> Add Your Posts</button>
+            </section> 
+            : <div className="navbar">
+                <button onClick={() => navigate('/login')} className="btn btn-active btn-accent w-96 h-16 text-xl font-serif mx-auto max-w-xs hover:btn-ghost hover:scale-105 duration-300 "> Add Your Posts</button>
             </div>}
 
         </>

@@ -16,7 +16,7 @@ function Home() {
                 </div>
             </div>
         </div> */}
-        
+
         <div className="hero min-h-screen" style={{ backgroundImage: `url("/images/rachel-park2.jpg")` }}>
             <div className="hero-overlay bg-opacity-40"></div>
             <div className="hero-content text-center text-neutral-content">
@@ -37,21 +37,21 @@ function Home() {
             <div className="rounded-xl relative">
                 <img
                     className="max-h-[160px] md:max-h-[200px] w-full object-cover rounded-xl"
-                    src="/images/rachel-park2.jpg"
+                    src="/images/chad-montano-MqT0asuoIcU-unsplash.jpg"
                     alt=""
                 />
             </div>
             <div className="rounded-xl relative">
                 <img
                     className="max-h-[160px] md:max-h-[200px] w-full object-cover rounded-xl "
-                    src="/images/rachel-park2.jpg"
+                    src="/images/victoria-shes-unsplash.jpg"
                     alt=""
                 />
             </div>
             <div className="rounded-xl relative">
                 <img
                     className="max-h-[160px] md:max-h-[200px] w-full object-cover rounded-xl "
-                    src="/images/rachel-park2.jpg"
+                    src="/images/HomemadeChicken.jfif"
                     alt=""
                 />
             </div>

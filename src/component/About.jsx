@@ -3,10 +3,10 @@ import Footer from "./Footer";
 function About() {
     return (
         <>
-            <div className="card lg:card-side bg-white">
-                <figure><img src="/images/download (1).jfif" alt="Album" /></figure>
+            <div className="card lg:card-side rounded-none ml-28 mr-20">
+                <figure className=""><img src="/images/download (1).jfif" alt="Album" /></figure>
                 <div className="card-body">
-                    <h1 className="card-title text-6xl font-serif text-accent-focus mt-5">About Me</h1>
+                    <h1 className="card-title text-5xl font-serif text-accent-focus mt-8">About Me</h1>
                     <h2 className="card-title text-3xl font-serif mt-5">I Love Food!</h2>
                     <span className="max-w-2xl text-xl text-slate-500 font-serif mt-5">In this space, I am always sharing fresh, flavorful, (mostly) healthy recipes that I love to make and eat in my real, actual, every day life. If I wouldn’t eat it in real life, I won’t put in on the blog.</span>
                     <span className="max-w-2xl text-xl text-slate-500 font-serif mt-3">My goal is to inspire you with food that is both approachable AND exciting, whether you’re cooking for yourself, your family, your roommates, or your friends.</span>

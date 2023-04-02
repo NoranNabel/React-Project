@@ -22,7 +22,6 @@ const Posts = () => {
                 // console.log(err);
             }
         }
-
         getPosts();
     }, []);
 
@@ -37,13 +36,6 @@ const Posts = () => {
         const newData = data.filter(item => item.id != id);
         setData(newData);
     };
-
-    const userData = JSON.parse(localStorage.getItem('userToken'))
-    console.log("user data: " + userData);
-
-    
-    const userName = localStorage.getItem("userName");
-    console.log("userName isss: " + userName)
 
     return (
         <>
@@ -63,8 +55,7 @@ const Posts = () => {
                         <div className="card-body w-1/2">
                             <div className="flex flex-row">
                                 <div className=" flex flex-col ">
-                                   {/* <span className="mx-2 mt-1 text-2xl font-serif font-semibold">{userData.user.name}</span> */}
-                                    <span className="mx-2 mt-1 text-2xl font-serif font-semibold">{userName}</span>
+                                    <span className="mx-2 mt-1 text-2xl font-serif font-semibold">{item.UserName}</span>
                                     <span className="mx-3 text-zinc-400 font-semibold mb-3">{new Date().toLocaleDateString()}</span>
                                 </div>
                             </div>
@@ -72,11 +63,15 @@ const Posts = () => {
                             <span className="max-w-5xl  text-1xl  font-serif mt-2 ">{item.description}</span>
                         </div>
 
-                        <button className="btn btn-xs sm:btn-sm md:btn-md mt-5"
-                            onClick={() => handelDeletePost(item.id)}>Delete</button>
+                        {localStorage.getItem("userToken") ?
+                            item.userID == JSON.parse(localStorage.getItem("userToken")).user.id ? (<><button className="btn btn-xs sm:btn-sm md:btn-md mt-5"
+                                onClick={() => handelDeletePost(item.id)}>Delete</button></>) : ""
+                            : " "}
 
-                        <button className="btn btn-xs sm:btn-sm md:btn-md mt-5 mx-5"
-                            onClick={() => navigate('/edit')} >Edit</button>
+                        {localStorage.getItem("userToken") ?
+                            item.userID == JSON.parse(localStorage.getItem("userToken")).user.id ? (<><button className="btn btn-xs sm:btn-sm md:btn-md mt-5"
+                                onClick={() => navigate('/edit')}>Edit</button></>) : ""
+                            : " "}
 
                     </div>))}
             </section>
