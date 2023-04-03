@@ -86,7 +86,7 @@ const Login = () => {
                                 delete newErrors.password;
                                 setErrors(newErrors);
                             }}
-                            type="text"
+                            type="password"
                             className="input input-bordered  w-full max-w-xs input-accent" />
                         {errors?.password && <span className="text-red-700">{errors.password}</span>}
                     </div>

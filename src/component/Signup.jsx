@@ -103,7 +103,7 @@ const SignUp = () => {
                                 delete newErrors.password;
                                 setErrors(newErrors);
                             }}
-                            type="text"
+                            type="password"
                             className="input input-bordered  w-full max-w-xs input-accent" />
                         {errors?.password && <span className="text-red-700">{errors.password}</span>}
                     </div>
@@ -120,7 +120,7 @@ const SignUp = () => {
                                 delete newErrors.confirmPassword;
                                 setErrors(newErrors);
                             }}
-                            type="text"
+                            type="password"
                             className="input input-bordered  w-full max-w-xs input-accent" />
                         {errors?.confirmPassword && <span className="text-red-700">{errors.confirmPassword}</span>}
 
