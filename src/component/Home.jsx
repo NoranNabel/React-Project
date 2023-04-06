@@ -18,15 +18,15 @@ function Home() {
         </div> */}
 
         <div className="hero min-h-screen" style={{ backgroundImage: `url("/images/rachel-park2.jpg")` }}>
-            <div className="hero-overlay bg-opacity-40"></div>
+            <div className="hero-overlay bg-opacity-60"></div>
             <div className="hero-content text-center text-neutral-content">
-                <div className="max-w-md mx-auto">
-                    <h1 className="card-title text-5xl font-serif ml-10 ">Hello Foodies !</h1>
-                    <h2 className="card-title text-3xl font-serif mt-3 font-normal ">Welcome To Our Cooking Food Blog</h2>
+                <div className="max-w-md">
+                    <h1 className="mb-5 text-5xl font-bold">Hello Foodies !</h1>
+                    <p className="mb-5">Welcome To Our Cooking Food Blog</p>
+                    <button className="btn btn-primary">Get Started</button>
                 </div>
             </div>
         </div>
-
 
         <div className="card-body w-full border-t border-slate-300 mb-5 ">
             <p className="card-title max-w-5xl text-accent-focus text-center text-4xl font-serif mx-auto"> Recipes </p>
